@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+{{ user.username }}
+
+{{ user.birthday }}
+
+{% for coupon in coupons %}
+
+  {{ coupon }} {{ coupon.discount}}% 할인쿠폰 {{ coupon.used_to }}까지
+
+
+{% endfor %}
+
+{% endblock content %}

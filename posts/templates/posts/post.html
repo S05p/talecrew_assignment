@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+ 제품명 : {{ post.title }}
+<br>
+ 설명 : {{ post.content }}
+<br>
+ 가격 :{{ post.price }}
+
+
+<div>
+    쿠폰
+</div>
+<div>
+    {% for coupon in coupon %}
+        {% if coupon.amount >= 1 %}
+            <form action="{% url 'posts:post' pk %}" method="POST">
+                {% csrf_token %}
+                <input type="hidden" name="coupon_pk" value="{{ coupon.pk }}">
+                <input type="submit" value="{{ coupon.discount }}퍼센트 할인쿠폰 {{ coupon.amount }}개 남음 지금 쿠폰받기">
+            </form>
+            <br>
+        {% endif %}
+    {% endfor %}
+
+</div>
+{% endblock content %}

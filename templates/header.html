@@ -1,0 +1,20 @@
+
+
+<div class="justify-content:space-between;align-items:center;">
+
+    <a href="{% url 'posts:index' %}">Home</a>
+
+    {% if user.is_authenticated %}
+
+    환영합니다 {{ user.username }}
+
+    <a href="{% url 'posts:create' %}">글쓰기</a>
+
+    {% else %}
+
+
+
+    {% endif %}
+
+
+</div>
